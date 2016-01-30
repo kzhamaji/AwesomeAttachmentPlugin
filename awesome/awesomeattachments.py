@@ -21,10 +21,22 @@ from trac.web.api import IRequestFilter
 from trac.web.chrome import ITemplateProvider, add_link, add_script, \
                             add_stylesheet
 
+from trac.util.translation import domain_functions
+_, add_domain = domain_functions('awesome', ('_', 'add_domain'))
+
 
 class AwesomeAttachments(Component):
 
     implements(IRequestFilter, ITemplateProvider)
+
+    def __init__ (self):
+        import pkg_resources
+        try:
+            locale_dir = pkg_resources.resource_filename(__name__, 'locale')
+        except KeyError:
+            pass
+        else:
+            add_domain(self.env.path, locale_dir)
 
     # IRequestFilter methods
 
@@ -36,6 +48,8 @@ class AwesomeAttachments(Component):
 
     def post_process_request(self, req, template, data, content_type):
         if template == 'ticket.html' and req.path_info == '/newticket':
+            if req.locale is not None:
+                add_script(req, 'awesome/messages/%s.js' % req.locale)
             add_script(req, 'awesome/js/awesome.js')
             add_stylesheet(req, 'awesome/css/awesome.css')
             add_link(req, 'image',

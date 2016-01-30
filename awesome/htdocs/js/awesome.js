@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
         <input class="fileInput" type="file" name="attachment[]" />\
       </span>\
       <div class="field">\
-        <label>Description of the file (optional):<br />\
+        <label>' + _('Description of the file (optional):') + '<br />\
         <input type="text" class="trac-fullwidth" name="description[]" \
                size="60" />\
         </label>\
@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
 
   var uploadContainer = '\
     <fieldset>\
-      <legend>Add Files</legend>\
+      <legend>' + _('Add Files') + '</legend>\
       <div id="uploads" class="uploads">\
       </div>\
       <a class="addUpload" href="#" style="float:right"><img src="' + addhref + '"></a>\

@@ -1,0 +1,38 @@
+# Japanese translations for AwesomeAttachmentsPlugin.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the
+# AwesomeAttachmentsPlugin project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AwesomeAttachmentsPlugin 0.4\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-01-30 20:07+0900\n"
+"PO-Revision-Date: 2016-01-30 18:00+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja_JP <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: awesome/awesomeattachments.py:101
+msgid "Can't upload empty file"
+msgstr "空ファイルはアップロードできません"
+
+#: awesome/awesomeattachments.py:105
+#, python-format
+msgid "Maximum attachment size: %(num)s bytes"
+msgstr "添付ファイルの上限サイズ: %(num)s バイト"
+
+#: awesome/awesomeattachments.py:106
+msgid "Upload failed"
+msgstr "アップロードに失敗しました"
+
+#: awesome/awesomeattachments.py:110
+msgid "No file uploaded"
+msgstr "アップロードされたファイルはありません"
+

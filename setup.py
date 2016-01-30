@@ -9,6 +9,24 @@
 
 from setuptools import find_packages, setup
 
+extra = {}
+
+try:
+    from trac.util.dist  import  get_l10n_js_cmdclass
+    cmdclass = get_l10n_js_cmdclass()
+    if cmdclass:
+        extra['cmdclass'] = cmdclass
+        extractors = [
+            ('**.py',                'python', None),
+            ('**/templates/**.html', 'genshi', None),
+        ]
+        extra['message_extractors'] = {
+            'awesome': extractors,
+        }
+# i18n is implemented to be optional here
+except ImportError:
+    pass
+
 setup(
     name='AwesomeAttachmentsPlugin',
     version='0.4',
@@ -20,10 +38,13 @@ setup(
     package_data={'awesome': [
         'htdocs/css/*.css',
         'htdocs/images/*.png',
-        'htdocs/js/*.js'
+        'htdocs/js/*.js',
+        'htdocs/messages/*.js',
+        'locale/*/LC_MESSAGES/*.mo',
     ]},
     entry_points="""
         [trac.plugins]
         awesome = awesome.awesomeattachments
     """,
+    **extra
 )
